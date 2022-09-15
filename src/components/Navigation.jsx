@@ -13,13 +13,13 @@ function Navigation() {
           Orders
         </Nav.Link>
         <Nav.Link className="text-white" href="/admin">
-          Admin
+          Admins
         </Nav.Link>
         <Nav.Link className="text-white" href="/product">
-          Product
+          Products
         </Nav.Link>
         <Nav.Link className="text-white" href="/collections">
-          Collection
+          Collections
         </Nav.Link>
       </Container>
     </Navbar>

@@ -5,11 +5,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-function AdminEdit() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function CollectionEdit() {
+  const [name, setName] = useState("");
+  const [slug, setSlug] = useState("");
+
   const token = useSelector((state) => state.token);
 
   const handleSubmit = async (e) => {
@@ -32,53 +31,29 @@ function AdminEdit() {
       <div className="container">
         <div className="row">
           <div className="col-12 text-start fw-bold">
-            <h1 className="mt-5 fw-bold">Edit Admin</h1>
+            <h1 className="mt-5 fw-bold">Edit Collection</h1>
             <hr />
             <Form className="my-5" onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>First name</Form.Label>
+                <Form.Label>Collection Name</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="Enter First name"
-                  value={firstname}
+                  value={name}
                   onChange={(e) => {
-                    setFirstname(e.target.value);
+                    setName(e.target.value);
                   }}
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>Last name</Form.Label>
+                <Form.Label>Collection Slug</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter Last name"
-                  value={lastname}
+                  value={slug}
                   onChange={(e) => {
-                    setLastname(e.target.value);
-                  }}
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>E-Mail</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter E-Mail"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label className="text-start">Password</Form.Label>
-                <Form.Control
-                  type="Password"
-                  placeholder="Enter E-Mail"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
+                    setSlug(e.target.value);
                   }}
                 />
               </Form.Group>
@@ -95,4 +70,4 @@ function AdminEdit() {
   );
 }
 
-export default AdminEdit;
+export default CollectionEdit;
