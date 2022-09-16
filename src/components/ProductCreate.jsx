@@ -22,16 +22,6 @@ function AdminCreate() {
 
   const token = useSelector((state) => state.token);
 
-  const formData = new FormData();
-  formData.append("name", name);
-  formData.append("description", description);
-  formData.append("price", price);
-  formData.append("stock", stock);
-  formData.append("category", category);
-  formData.append("bestseller", bestseller);
-  formData.append("image", image);
-  formData.append("imageBack", imageBack);
-
   useEffect(() => {
     const getData = async () => {
       const response = await axios({
@@ -46,6 +36,15 @@ function AdminCreate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("stock", stock);
+    formData.append("category", category);
+    formData.append("bestseller", bestseller);
+    formData.append("image", image);
+    formData.append("imageBack", imageBack);
     try {
       const response = await axios({
         method: "post",
@@ -57,7 +56,7 @@ function AdminCreate() {
     } catch (err) {
       console.log(err);
     }
-    navigate(-1);
+    // navigate(-1);
   };
   return (
     <>
@@ -168,7 +167,6 @@ function AdminCreate() {
                   type="file"
                   onChange={(e) => {
                     setImage(e.target.files[0]);
-                    console.log(formData);
                   }}
                 />
               </Form.Group>

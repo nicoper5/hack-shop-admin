@@ -3,10 +3,37 @@ import { Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Product() {
   const navigate = useNavigate();
   const [products, setProducts] = useState(null);
+
+  const handleClick = async (product) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    });
+    if (result.isConfirmed) {
+      const response = await axios({
+        method: "delete",
+        url: process.env.REACT_APP_API_URL + `/products/${product.id}`,
+      });
+      console.log(response.data);
+      const updatedProducts = await axios({
+        method: "get",
+        baseURL: process.env.REACT_APP_API_URL,
+        url: "/products",
+      });
+      setProducts(updatedProducts.data);
+      Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    }
+  };
 
   useEffect(() => {
     const getProducts = async () => {
@@ -59,7 +86,12 @@ function Product() {
                         >
                           Edit
                         </Button>
-                        <Button variant="danger">Delete</Button>
+                        <Button
+                          variant="danger"
+                          onClick={() => handleClick(product)}
+                        >
+                          Delete
+                        </Button>
                       </td>
                     </tr>
                   ))}
