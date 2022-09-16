@@ -5,7 +5,7 @@ import Admin from "./components/Admin";
 import AdminCreate from "./components/AdminCreate";
 import AdminEdit from "./components/AdminEdit";
 import Collections from "./components/Collections";
-import CollectionCreate from "./components/Collections";
+import CollectionCreate from "./components/CollectionCreate";
 import CollectionEdit from "./components/CollectionEdit";
 import Products from "./components/Products";
 import ProductCreate from "./components/ProductCreate";
@@ -20,7 +20,7 @@ function App() {
         <Route path="/admin/create" element={<AdminCreate />} />
         <Route path="/admin/edit/:id" element={<AdminEdit />} />
         <Route path="/collections" element={<Collections />} />
-        <Route path="/collection/create" element={<CollectionCreate />} />
+        <Route path="/collections/create" element={<CollectionCreate />} />
         <Route path="/collection/edit/:id" element={<CollectionEdit />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/create" element={<ProductCreate />} />

@@ -1,6 +1,8 @@
 import Navigation from "./Navigation";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Form from "react-bootstrap/Form";
+// import NavigationTemplate from "./NavigationTemplate";
 
 function Home() {
   const [orders, setOrders] = useState(null);
@@ -20,6 +22,7 @@ function Home() {
   return (
     <>
       <Navigation />
+      {/* <NavigationTemplate /> */}
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -34,7 +37,8 @@ function Home() {
                   <th scope="col">Delivery Address</th>
                   <th scope="col">Product List</th>
                   <th scope="col">Price</th>
-                  <th scope="col">State</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Modify Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -56,6 +60,16 @@ function Home() {
                       </td>
                       <td>$USD 24000</td>
                       <td>{order.status}</td>
+                      <td>
+                        <Form.Group className="mb-3">
+                          <Form.Select>
+                            <option>unpaid</option>
+                            <option>paid</option>
+                            <option>sent</option>
+                            <option>delivered</option>
+                          </Form.Select>
+                        </Form.Group>
+                      </td>
                     </tr>
                   ))}
               </tbody>
