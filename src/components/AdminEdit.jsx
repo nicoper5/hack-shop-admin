@@ -64,7 +64,7 @@ function AdminEdit() {
               <h1 className="mt-5 fw-bold">Edit Admin</h1>
               <hr />
               <Form className="my-5" onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Group className="mb-3">
                   <Form.Label>First name</Form.Label>
                   <Form.Control
                     type="text"
@@ -76,7 +76,7 @@ function AdminEdit() {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Group className="mb-3">
                   <Form.Label>Last name</Form.Label>
                   <Form.Control
                     type="text"
@@ -88,7 +88,7 @@ function AdminEdit() {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Group className="mb-3">
                   <Form.Label>E-Mail</Form.Label>
                   <Form.Control
                     type="text"

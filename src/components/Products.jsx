@@ -45,10 +45,10 @@ function Product() {
                 {products &&
                   products.map((product) => (
                     <tr key={product.id}>
+                      <td>{product.id}</td>
                       <td>{product.name}</td>
                       <td>{product.stock}</td>
-                      <td>{product.bestseller}</td>
-                      <td>Yes</td>
+                      <td>{product.bestseller ? "Yes" : "No"}</td>
                       <td>
                         <Button
                           variant="primary"
