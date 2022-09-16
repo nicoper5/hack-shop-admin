@@ -1,7 +1,7 @@
 import Navigation from "./Navigation";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 // import NavigationTemplate from "./NavigationTemplate";
 
 function Home() {
@@ -36,7 +36,7 @@ function Home() {
                   <th scope="col">Customer Name</th>
                   <th scope="col">Delivery Address</th>
                   <th scope="col">Product List</th>
-                  <th scope="col">Price</th>
+                  <th scope="col">Total Price</th>
                   <th scope="col">Status</th>
                   <th scope="col">Modify Status</th>
                 </tr>
@@ -58,17 +58,15 @@ function Home() {
                           ))}
                         </ul>
                       </td>
-                      <td>$USD 24000</td>
+                      <td>$USD {order.total}</td>
                       <td>{order.status}</td>
                       <td>
-                        <Form.Group className="mb-3">
-                          <Form.Select>
-                            <option>unpaid</option>
-                            <option>paid</option>
-                            <option>sent</option>
-                            <option>delivered</option>
-                          </Form.Select>
-                        </Form.Group>
+                        <Link
+                          to={`/orders/edit/${order.id}`}
+                          className="btn-blue"
+                        >
+                          Edit
+                        </Link>
                       </td>
                     </tr>
                   ))}
