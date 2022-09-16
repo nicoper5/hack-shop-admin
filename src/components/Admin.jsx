@@ -45,7 +45,7 @@ function Admin() {
               <tbody>
                 {admins &&
                   admins.map((admin) => (
-                    <tr>
+                    <tr key={admin.id}>
                       <td>{admin.firstname}</td>
                       <td>{admin.lastname}</td>
                       <td>{admin.email}</td>

@@ -11,16 +11,19 @@ function Navigation() {
         <Navbar.Brand as="span" className="fs-6 logo-panerai fs-4">
           PANERAI
         </Navbar.Brand>
-        <Nav.Link className="text-white" onClick={navigate("/")}>
+        <Nav.Link className="text-white" onClick={() => navigate("/")}>
           Orders
         </Nav.Link>
-        <Nav.Link className="text-white" onClick={navigate("/admin")}>
+        <Nav.Link className="text-white" onClick={() => navigate("/admin")}>
           Admins
         </Nav.Link>
-        <Nav.Link className="text-white" onClick={navigate("/products")}>
+        <Nav.Link className="text-white" onClick={() => navigate("/products")}>
           Products
         </Nav.Link>
-        <Nav.Link className="text-white" onClick={navigate("/collections")}>
+        <Nav.Link
+          className="text-white"
+          onClick={() => navigate("/collections")}
+        >
           Collections
         </Nav.Link>
       </Container>

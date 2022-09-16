@@ -40,7 +40,7 @@ function Home() {
               <tbody>
                 {orders &&
                   orders.map((order) => (
-                    <tr>
+                    <tr key={order.id}>
                       <td>{order.id}</td>
                       <td>{order.createdAt}</td>
                       <td>
