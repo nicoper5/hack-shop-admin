@@ -10,6 +10,7 @@ import CollectionEdit from "./components/CollectionEdit";
 import Products from "./components/Products";
 import OrderEdit from "./components/OrderEdit";
 import ProductCreate from "./components/ProductCreate";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/collection/edit/:id" element={<CollectionEdit />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/create" element={<ProductCreate />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
