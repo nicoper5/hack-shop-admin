@@ -16,6 +16,9 @@ function AdminCreate() {
   const [price, setPrice] = useState(0);
   const [stock, setStock] = useState(0);
   const [category, setCategory] = useState("");
+  const [bestseller, setBestseller] = useState(false);
+  const [image, setImage] = useState("");
+  const [imageBack, setImageBack] = useState("");
 
   const token = useSelector((state) => state.token);
 
@@ -25,6 +28,9 @@ function AdminCreate() {
   formData.append("price", price);
   formData.append("stock", stock);
   formData.append("category", category);
+  formData.append("bestseller", bestseller);
+  formData.append("image", image);
+  formData.append("imageBack", imageBack);
 
   useEffect(() => {
     const getData = async () => {
@@ -41,13 +47,13 @@ function AdminCreate() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const createAdmin = await axios({
+      const response = await axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "/admin",
+        url: process.env.REACT_APP_API_URL + "/products",
         data: FormData,
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(createAdmin.data);
+      console.log(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -130,6 +136,51 @@ function AdminCreate() {
                       </option>
                     ))}
                 </Form.Select>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label className="text-start">
+                  Set product as bestseller?
+                </Form.Label>
+                <div onChange={(e) => setBestseller(e.target.value)}>
+                  <Form.Check
+                    inline
+                    label="Yes"
+                    name="bestseller"
+                    type="radio"
+                    id={`inline-1`}
+                    value={true}
+                  />
+                  <Form.Check
+                    inline
+                    label="No"
+                    name="bestseller"
+                    type="radio"
+                    id={`inline-2`}
+                    value={false}
+                  />
+                </div>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Front picture</Form.Label>
+                <Form.Control
+                  type="file"
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                    console.log(formData);
+                  }}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Back picture</Form.Label>
+                <Form.Control
+                  type="file"
+                  onChange={(e) => {
+                    setImageBack(e.target.files[0]);
+                  }}
+                />
               </Form.Group>
 
               <Button variant="success" type="submit">
