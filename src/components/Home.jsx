@@ -63,7 +63,7 @@ function Home() {
                       <td>
                         <Link
                           to={`/orders/edit/${order.id}`}
-                          className="btn-blue"
+                          className="btn btn-primary"
                         >
                           Edit
                         </Link>

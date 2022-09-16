@@ -23,8 +23,8 @@ function Navigation() {
           Products
         </Link>
 
-        <Link to="/login" className="links-styles">
-          Login
+        <Link to="/logout" className="links-styles">
+          Logout
         </Link>
 
         <Link to="/collections" className="links-styles">
