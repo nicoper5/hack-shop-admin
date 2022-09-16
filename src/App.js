@@ -7,6 +7,7 @@ import AdminEdit from "./components/AdminEdit";
 import Collections from "./components/Collections";
 import CollectionCreate from "./components/Collections";
 import CollectionEdit from "./components/CollectionEdit";
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/collections" element={<Collections />} />
         <Route path="/collection/create" element={<CollectionCreate />} />
         <Route path="/collection/edit/:id" element={<CollectionEdit />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </div>
   );
