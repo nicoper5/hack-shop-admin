@@ -54,7 +54,7 @@ function Admin() {
                         <Button
                           variant="primary"
                           className="mx-2"
-                          onClick={() => navigate(`/admin/edit/:${admin.id}`)}
+                          onClick={() => navigate(`/admin/edit/${admin.id}`)}
                         >
                           Edit
                         </Button>
