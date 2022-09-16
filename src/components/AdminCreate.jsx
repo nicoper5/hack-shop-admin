@@ -4,8 +4,10 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function AdminCreate() {
+  const navigate = useNavigate();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -30,6 +32,7 @@ function AdminCreate() {
     } catch (err) {
       console.log(err);
     }
+    navigate(-1);
   };
   return (
     <>
@@ -43,7 +46,7 @@ function AdminCreate() {
               <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>First name</Form.Label>
                 <Form.Control
-                  type="email"
+                  type="text"
                   placeholder="Enter First name"
                   value={firstname}
                   onChange={(e) => {
@@ -80,7 +83,7 @@ function AdminCreate() {
                 <Form.Label className="text-start">Password</Form.Label>
                 <Form.Control
                   type="Password"
-                  placeholder="Enter E-Mail"
+                  placeholder="Enter Password"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);

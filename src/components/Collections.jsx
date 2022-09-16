@@ -24,9 +24,9 @@ function Collections() {
     <>
       <Navigation />
       <div className="container">
-        <div className="row ">
+        <div className="row">
           <div className="col-12">
-            <h1 className="mt-5 fw-bold">Collections LIST</h1>
+            <h1 className="mt-5 fw-bold">Collections List</h1>
             <hr />
             <Button
               variant="success"
