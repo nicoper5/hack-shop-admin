@@ -78,6 +78,7 @@ function Admin() {
                                   process.env.REACT_APP_API_URL +
                                   `/admin/${admin.id}`,
                               });
+                              console.log(adminDeleted.data);
                               const adminsUpdated = await axios({
                                 method: "get",
                                 url: process.env.REACT_APP_API_URL + "/admin",
