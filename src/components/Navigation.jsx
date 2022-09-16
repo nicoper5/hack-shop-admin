@@ -1,31 +1,35 @@
-import { Nav, Container, Navbar } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Container, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "../css/navigation.css";
 
 function Navigation() {
-  const navigate = useNavigate();
   return (
     <Navbar bg="black" variant="dark" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand as="span" className="fs-6 logo-panerai fs-4">
           PANERAI
         </Navbar.Brand>
-        <Nav.Link className="text-white" onClick={() => navigate("/")}>
+
+        <Link to="/" className="links-styles">
           Orders
-        </Nav.Link>
-        <Nav.Link className="text-white" onClick={() => navigate("/admin")}>
+        </Link>
+
+        <Link to="/admin" className="links-styles">
           Admins
-        </Nav.Link>
-        <Nav.Link className="text-white" onClick={() => navigate("/products")}>
+        </Link>
+
+        <Link to="/products" className="links-styles">
           Products
-        </Nav.Link>
-        <Nav.Link
-          className="text-white"
-          onClick={() => navigate("/collections")}
-        >
+        </Link>
+
+        <Link to="/login" className="links-styles">
+          Login
+        </Link>
+
+        <Link to="/collections" className="links-styles">
           Collections
-        </Nav.Link>
+        </Link>
       </Container>
     </Navbar>
   );

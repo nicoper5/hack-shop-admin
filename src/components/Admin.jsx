@@ -1,6 +1,5 @@
 import Navigation from "./Navigation";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -8,8 +7,6 @@ import "../css/admin.css";
 import Swal from "sweetalert2";
 
 function Admin() {
-  const navigate = useNavigate();
-
   const [admins, setAdmins] = useState(null);
 
   useEffect(() => {
@@ -51,14 +48,12 @@ function Admin() {
                       <td>{admin.lastname}</td>
                       <td>{admin.email}</td>
                       <td>
-                        <Button
-                          variant="primary"
-                          className="mx-2"
-                          onClick={() => navigate(`/admin/edit/${admin.id}`)}
+                        <Link
+                          to={`/admin/edit/${admin.id}`}
+                          className="btn-blue"
                         >
                           Edit
-                        </Button>
-
+                        </Link>
                         <Button
                           variant="danger"
                           onClick={async () => {

@@ -8,14 +8,16 @@ import Collections from "./components/Collections";
 import CollectionCreate from "./components/CollectionCreate";
 import CollectionEdit from "./components/CollectionEdit";
 import Products from "./components/Products";
+import OrderEdit from "./components/OrderEdit";
 import ProductCreate from "./components/ProductCreate";
+import Login from "./components/Login";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/orders/:id" element={<Home />} />
+        <Route path="/orders/edit/:id" element={<OrderEdit />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/create" element={<AdminCreate />} />
         <Route path="/admin/edit/:id" element={<AdminEdit />} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/collection/edit/:id" element={<CollectionEdit />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/create" element={<ProductCreate />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

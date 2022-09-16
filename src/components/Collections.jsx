@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import "../css/collections.css";
 
 function Collections() {
   const navigate = useNavigate();
@@ -49,7 +50,17 @@ function Collections() {
                   collections.map((collection) => (
                     <tr key={collection.id}>
                       <td>{collection.name}</td>
-                      <td>{collection.img}</td>
+                      <td>
+                        <img
+                          className="img-fluid img-card"
+                          src={
+                            process.env.REACT_APP_API_URL +
+                            "/img/" +
+                            collection.img
+                          }
+                          alt="Luminor Collection"
+                        />
+                      </td>
                       <td>{collection.slug}</td>
                       <td>
                         <Button
