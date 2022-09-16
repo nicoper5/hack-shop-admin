@@ -1,6 +1,7 @@
 import Navigation from "./Navigation";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import NavigationTemplate from "./NavigationTemplate";
 
 function Home() {
   const [orders, setOrders] = useState(null);
@@ -19,7 +20,8 @@ function Home() {
 
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
+      <NavigationTemplate />
       <div className="container">
         <div className="row">
           <div className="col-12">
