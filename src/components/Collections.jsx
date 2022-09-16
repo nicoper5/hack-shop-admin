@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 function Collections() {
   const navigate = useNavigate();
@@ -60,7 +61,43 @@ function Collections() {
                         >
                           Edit
                         </Button>
-                        <Button variant="danger">Delete</Button>
+                        <Button
+                          variant="danger"
+                          onClick={async () => {
+                            const result = await Swal.fire({
+                              title: "Are you sure?",
+                              text: "You won't be able to revert this!",
+                              icon: "warning",
+                              showCancelButton: true,
+                              confirmButtonColor: "#3085d6",
+                              cancelButtonColor: "#d33",
+                              confirmButtonText: "Yes, delete it!",
+                            });
+                            if (result.isConfirmed) {
+                              const collectionDeleted = await axios({
+                                method: "delete",
+                                url:
+                                  process.env.REACT_APP_API_URL +
+                                  `/collections/${collection.id}`,
+                              });
+                              console.log(collectionDeleted.data);
+                              const collectionUpdated = await axios({
+                                method: "get",
+                                url:
+                                  process.env.REACT_APP_API_URL +
+                                  "/collections",
+                              });
+                              setCollections(collectionUpdated.data);
+                              Swal.fire(
+                                "Deleted!",
+                                "Your file has been deleted.",
+                                "success"
+                              );
+                            }
+                          }}
+                        >
+                          Delete
+                        </Button>
                       </td>
                     </tr>
                   ))}

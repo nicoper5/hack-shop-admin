@@ -1,5 +1,5 @@
 import "../css/sidebar.css";
-import { NavDropdown } from "react-bootstrap";
+import { Nav, NavDropdown } from "react-bootstrap";
 
 function NavigationTemplate() {
   return (
@@ -26,46 +26,51 @@ function NavigationTemplate() {
           </button>
         </div>
       </form>
-      <NavDropdown title="COLLECTIONS" id="basic-nav-dropdown">
-        <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-          <NavDropdown.Item></NavDropdown.Item>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              id="navbarDropdown"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i className="fas fa-user fa-fw"></i>
-            </a>
-            <ul
-              className="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdown"
-            >
-              <li>
-                <a className="dropdown-item" href="#!">
-                  Settings
+      <Nav>
+        <NavDropdown title="COLLECTIONS" id="basic-nav-dropdown">
+          <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li className="nav-item dropdown">
+              <NavDropdown.Item>
+                <a
+                  className="nav-link dropdown-toggle"
+                  id="navbarDropdown"
+                  href="/"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i className="fas fa-user fa-fw"></i>
                 </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#!">
-                  Activity Log
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <a className="dropdown-item" href="#!">
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </NavDropdown>
+              </NavDropdown.Item>
+              <ul
+                className="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarDropdown"
+              >
+                <NavDropdown.Item>
+                  <li>
+                    <a className="dropdown-item" href="/">
+                      Settings
+                    </a>
+                  </li>
+                </NavDropdown.Item>
+                <li>
+                  <a className="dropdown-item" href="/">
+                    Activity Log
+                  </a>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/">
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </NavDropdown>
+      </Nav>
     </nav>
   );
 }
