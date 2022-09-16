@@ -7,9 +7,12 @@ const customerSlice = createSlice({
     storeToken(state, action) {
       state.token = action.payload.token;
     },
+    clearToken(state, action) {
+      state.token = null;
+    },
   },
 });
 
 const { actions, reducer } = customerSlice;
-export const { storeToken } = actions;
+export const { storeToken, clearToken } = actions;
 export default reducer;

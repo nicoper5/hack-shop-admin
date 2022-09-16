@@ -28,7 +28,7 @@ function Admin() {
           <div className="col-12">
             <h1 className="mt-5 fw-bold">ADMIN LIST</h1>
             <hr />
-            <Link to="/admin/create" className="btn-green">
+            <Link to="/admin/create" className="btn btn-success">
               New Admin
             </Link>
             <table className="table table-striped table-bordered align-middle mt-4">

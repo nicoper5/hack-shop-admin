@@ -2,6 +2,7 @@ import Navigation from "./Navigation";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "../css/collections.css";
@@ -30,12 +31,9 @@ function Collections() {
           <div className="col-12">
             <h1 className="mt-5 fw-bold">Collections List</h1>
             <hr />
-            <Button
-              variant="success"
-              onClick={() => navigate("/collections/create")}
-            >
+            <Link to="/collections/create" className="btn btn-success">
               New Collection
-            </Button>
+            </Link>
             <table className="table table-striped table-bordered align-middle mt-4">
               <thead className="table-dark">
                 <tr>

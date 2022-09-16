@@ -28,7 +28,7 @@ function Product() {
           <div className="col-12">
             <h1 className="mt-5 fw-bold">PRODUCT LIST</h1>
             <hr />
-            <Link to="/products/create" className="btn-green">
+            <Link to="/products/create" className="btn btn-success">
               New Product
             </Link>
             <table className="table table-striped table-bordered align-middle mt-4">
