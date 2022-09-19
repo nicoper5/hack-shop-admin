@@ -75,11 +75,13 @@ function Admin() {
                                 url:
                                   process.env.REACT_APP_API_URL +
                                   `/admin/${admin.id}`,
+                                headers: { Authorization: "Bearer " + token },
                               });
                               console.log(adminDeleted.data);
                               const adminsUpdated = await axios({
                                 method: "get",
                                 url: process.env.REACT_APP_API_URL + "/admin",
+                                headers: { Authorization: "Bearer " + token },
                               });
                               setAdmins(adminsUpdated.data);
                               Swal.fire(

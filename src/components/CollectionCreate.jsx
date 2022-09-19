@@ -37,7 +37,7 @@ function CollectionCreate() {
       <div className="container">
         <div className="row">
           <div className="col-12 text-start fw-bold">
-            <h1 className="mt-5 fw-bold">Create Collection</h1>
+            <h1 className="mt-5 fw-bold">Edit Collection</h1>
             <hr />
             <Form className="my-5" onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicText">

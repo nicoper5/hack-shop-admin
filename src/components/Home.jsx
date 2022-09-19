@@ -2,22 +2,25 @@ import Navigation from "./Navigation";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 // import NavigationTemplate from "./NavigationTemplate";
 
 function Home() {
   const [orders, setOrders] = useState(null);
+  const token = useSelector((state) => state.token);
 
   useEffect(() => {
     const getOrders = async () => {
       const response = await axios({
         method: "get",
         url: process.env.REACT_APP_API_URL + "/orders",
+        headers: { Authorization: "Bearer " + token },
       });
       console.log(response.data);
       setOrders(response.data);
     };
     getOrders();
-  }, []);
+  }, [token]);
 
   return (
     <>
