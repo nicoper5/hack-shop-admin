@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "../css/collections.css";
+import { useSelector } from "react-redux";
 
 function Collections() {
   const navigate = useNavigate();
   const [collections, setCollections] = useState(null);
+  const token = useSelector((state) => state.token);
 
   useEffect(() => {
     const getCollections = async () => {
@@ -85,9 +87,9 @@ function Collections() {
                             if (result.isConfirmed) {
                               const collectionDeleted = await axios({
                                 method: "delete",
-                                url:
-                                  process.env.REACT_APP_API_URL +
-                                  `/collections/${collection.id}`,
+                                baseURL: process.env.REACT_APP_API_URL,
+                                url: `/collections/${collection.id}`,
+                                headers: { Authorization: "Bearer " + token },
                               });
                               console.log(collectionDeleted.data);
                               const collectionUpdated = await axios({
