@@ -40,7 +40,8 @@ function CollectionCreate() {
     try {
       const editCollection = await axios({
         method: "patch",
-        url: process.env.REACT_APP_API_URL + `/collections/${params.id}`,
+        baseURL: process.env.REACT_APP_API_URL,
+        url: `/collections/${params.id}`,
         data: formData,
         headers: { Authorization: `Bearer ${token}` },
       });
