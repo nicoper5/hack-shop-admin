@@ -4,10 +4,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
 
 function Product() {
   const navigate = useNavigate();
   const [products, setProducts] = useState(null);
+  const token = useSelector((state) => state.token);
 
   const handleClick = async (product) => {
     const result = await Swal.fire({
@@ -22,7 +24,9 @@ function Product() {
     if (result.isConfirmed) {
       const response = await axios({
         method: "delete",
-        url: process.env.REACT_APP_API_URL + `/products/${product.id}`,
+        baseURL: process.env.REACT_APP_API_URL,
+        url: `/products/${product.id}`,
+        headers: { Authorization: "Bearer " + token },
       });
       console.log(response.data);
       const updatedProducts = await axios({
