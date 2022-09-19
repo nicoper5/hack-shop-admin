@@ -23,7 +23,7 @@ function CollectionCreate() {
       const response = await axios({
         method: "get",
         baseURL: process.env.REACT_APP_API_URL,
-        url: `/collections/${params.id}`,
+        url: `/collections/${params.slug}`,
 
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -41,7 +41,7 @@ function CollectionCreate() {
       const editCollection = await axios({
         method: "patch",
         baseURL: process.env.REACT_APP_API_URL,
-        url: `/collections/${params.id}`,
+        url: `/collections/${collection.id}`,
         data: formData,
         headers: { Authorization: `Bearer ${token}` },
       });

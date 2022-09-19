@@ -67,7 +67,7 @@ function Collections() {
                           variant="primary"
                           className="mx-2"
                           onClick={() =>
-                            navigate(`/collection/edit/${collection.id}`)
+                            navigate(`/collection/edit/${collection.slug}`)
                           }
                         >
                           Edit

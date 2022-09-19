@@ -26,7 +26,7 @@ function App() {
           <Route path="/admin/edit/:id" element={<AdminEdit />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/collections/create" element={<CollectionCreate />} />
-          <Route path="/collection/edit/:id" element={<CollectionEdit />} />
+          <Route path="/collection/edit/:slug" element={<CollectionEdit />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/create" element={<ProductCreate />} />
           <Route path="/logout" element={<Logout />} />
