@@ -49,14 +49,14 @@ function AdminCreate() {
       const response = await axios({
         method: "post",
         url: process.env.REACT_APP_API_URL + "/products",
-        data: FormData,
+        data: formData,
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log(response.data);
     } catch (err) {
       console.log(err);
     }
-    // navigate(-1);
+    navigate(-1);
   };
   return (
     <>
@@ -71,6 +71,7 @@ function AdminCreate() {
                 <Form.Label>Product name</Form.Label>
                 <Form.Control
                   type="text"
+                  name="name"
                   placeholder="Enter product name"
                   value={name}
                   onChange={(e) => {
@@ -83,6 +84,7 @@ function AdminCreate() {
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
+                  name="description"
                   placeholder="Enter product description"
                   value={description}
                   onChange={(e) => {
@@ -96,6 +98,7 @@ function AdminCreate() {
                 <InputGroup className="mb-3">
                   <Form.Control
                     type="number"
+                    name="price"
                     placeholder="Enter price"
                     value={price}
                     aria-label="Username"
@@ -112,6 +115,7 @@ function AdminCreate() {
                 <Form.Label className="text-start">Stock</Form.Label>
                 <Form.Control
                   type="number"
+                  name="stock"
                   placeholder="In stock"
                   value={stock}
                   onChange={(e) => {
@@ -124,6 +128,7 @@ function AdminCreate() {
                 <Form.Label className="text-start">Collection</Form.Label>
                 <Form.Select
                   aria-label="category selection"
+                  name="category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
@@ -165,6 +170,7 @@ function AdminCreate() {
                 <Form.Label>Front picture</Form.Label>
                 <Form.Control
                   type="file"
+                  name="image"
                   onChange={(e) => {
                     setImage(e.target.files[0]);
                   }}
@@ -175,6 +181,7 @@ function AdminCreate() {
                 <Form.Label>Back picture</Form.Label>
                 <Form.Control
                   type="file"
+                  name="imageBack"
                   onChange={(e) => {
                     setImageBack(e.target.files[0]);
                   }}
