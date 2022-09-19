@@ -12,7 +12,6 @@ import OrderEdit from "./components/OrderEdit";
 import ProductCreate from "./components/ProductCreate";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
           <Route path="/collection/edit/:slug" element={<CollectionEdit />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/create" element={<ProductCreate />} />
-          <Route path="/logout" element={<Logout />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

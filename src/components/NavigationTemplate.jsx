@@ -1,7 +1,15 @@
 import "../css/sidebar.css";
 import { NavDropdown } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { clearToken } from "../redux/adminSlice";
 
 function NavigationTemplate() {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(clearToken());
+  };
+
   return (
     <nav className="sb-topnav navbar navbar-expand navbar-dark bg-black">
       <a className="navbar-brand ps-3 logo-panerai" href="/">
@@ -23,7 +31,11 @@ function NavigationTemplate() {
         id="basic-nav-dropdown"
       >
         <NavDropdown.Item>
-          <button className="btn btn-warning" href="/logout">
+          <button
+            className="btn btn-danger "
+            type="submit"
+            onClick={handleClick}
+          >
             Logout
           </button>
         </NavDropdown.Item>
