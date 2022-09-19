@@ -44,7 +44,8 @@ function Product() {
     const getProducts = async () => {
       const response = await axios({
         method: "get",
-        url: process.env.REACT_APP_API_URL + "/products",
+        baseURL: process.env.REACT_APP_API_URL,
+        url: "/products",
       });
       console.log(response.data);
       setProducts(response.data);
