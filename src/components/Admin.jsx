@@ -5,20 +5,23 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/admin.css";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
 
 function Admin() {
   const [admins, setAdmins] = useState(null);
+  const token = useSelector((state) => state.token);
 
   useEffect(() => {
     const getAdmins = async () => {
       const response = await axios({
         method: "get",
         url: process.env.REACT_APP_API_URL + "/admin",
+        headers: { Authorization: "Bearer " + token },
       });
       setAdmins(response.data);
     };
     getAdmins();
-  }, [admins]);
+  }, [admins, token]);
 
   return (
     <>

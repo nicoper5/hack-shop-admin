@@ -54,7 +54,7 @@ function Home() {
                       <td>
                         <ul className="text-start">
                           {order.products.map((product) => (
-                            <li>{product.name}</li>
+                            <li key={product.id}>{product.name}</li>
                           ))}
                         </ul>
                       </td>
