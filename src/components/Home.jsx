@@ -1,9 +1,9 @@
-import Navigation from "./Navigation";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import NavigationTemplate from "./NavigationTemplate";
+import Sidebar from "./Sidebar";
+import NavigationTemplate from "./NavigationTemplate";
 
 function Home() {
   const [orders, setOrders] = useState(null);
@@ -24,11 +24,11 @@ function Home() {
 
   return (
     <>
-      <Navigation />
-      {/* <NavigationTemplate /> */}
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
-        <div className="row">
-          <div className="col-12">
+        <div className="row justify-content-end">
+          <div className="col-10">
             <h1 className="mt-5 fw-bold">ORDERS LIST</h1>
             <hr />
             <table className="table table-striped table-bordered align-middle mt-4">

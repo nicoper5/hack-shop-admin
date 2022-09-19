@@ -2571,8 +2571,7 @@ textarea.form-control-lg {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    print-color-adjust: exact;
 }
 .form-check-input[type="checkbox"] {
     border-radius: 0.25em;
@@ -12231,4 +12230,12 @@ body {
     transform: scale(1, 0.65);
     text-decoration: none;
     font-size: 1.5rem;
+}
+
+.sidebar-propio {
+    position: fixed;
+    top: 0%;
+    height: 100vh;
+    padding-top: 1%;
+    width: 12.5%;
 }

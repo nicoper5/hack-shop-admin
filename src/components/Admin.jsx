@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -6,6 +5,8 @@ import { Link } from "react-router-dom";
 import "../css/admin.css";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
+import Sidebar from "./Sidebar";
+import NavigationTemplate from "./NavigationTemplate";
 
 function Admin() {
   const [admins, setAdmins] = useState(null);
@@ -25,10 +26,11 @@ function Admin() {
 
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
-        <div className="row ">
-          <div className="col-12">
+        <div className="row justify-content-end">
+          <div className="col-10">
             <h1 className="mt-5 fw-bold">ADMIN LIST</h1>
             <hr />
             <Link to="/admin/create" className="btn btn-success">

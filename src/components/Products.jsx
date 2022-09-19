@@ -1,13 +1,16 @@
-import Navigation from "./Navigation";
 import { Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
+import NavigationTemplate from "./NavigationTemplate";
+import Sidebar from "./Sidebar";
 
 function Product() {
   const navigate = useNavigate();
   const [products, setProducts] = useState(null);
+  const token = useSelector((state) => state.token);
 
   const handleClick = async (product) => {
     const result = await Swal.fire({
@@ -22,7 +25,9 @@ function Product() {
     if (result.isConfirmed) {
       const response = await axios({
         method: "delete",
-        url: process.env.REACT_APP_API_URL + `/products/${product.id}`,
+        baseURL: process.env.REACT_APP_API_URL,
+        url: `/products/${product.id}`,
+        headers: { Authorization: "Bearer " + token },
       });
       console.log(response.data);
       const updatedProducts = await axios({
@@ -39,7 +44,8 @@ function Product() {
     const getProducts = async () => {
       const response = await axios({
         method: "get",
-        url: process.env.REACT_APP_API_URL + "/products",
+        baseURL: process.env.REACT_APP_API_URL,
+        url: "/products",
       });
       console.log(response.data);
       setProducts(response.data);
@@ -49,10 +55,11 @@ function Product() {
 
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
-        <div className="row ">
-          <div className="col-12">
+        <div className="row justify-content-end">
+          <div className="col-10">
             <h1 className="mt-5 fw-bold">PRODUCT LIST</h1>
             <hr />
             <Link to="/products/create" className="btn btn-success">
