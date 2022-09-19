@@ -50,10 +50,6 @@ const Sidebar = () => {
             </a>
           </div>
         </div>
-        <div className="sb-sidenav-footer bg-black">
-          <div className="small">Logged in as:</div>
-          Administrador
-        </div>
       </nav>
     </div>
   );
