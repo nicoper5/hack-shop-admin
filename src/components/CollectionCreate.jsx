@@ -1,10 +1,11 @@
-import Navigation from "./Navigation";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import NavigationTemplate from "./NavigationTemplate";
+import Sidebar from "./Sidebar";
 
 function CollectionCreate() {
   const navigate = useNavigate();
@@ -33,10 +34,11 @@ function CollectionCreate() {
   };
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
-        <div className="row">
-          <div className="col-12 text-start fw-bold">
+        <div className="row justify-content-end">
+          <div className="col-10 text-start fw-bold">
             <h1 className="mt-5 fw-bold">Edit Collection</h1>
             <hr />
             <Form className="my-5" onSubmit={handleSubmit}>

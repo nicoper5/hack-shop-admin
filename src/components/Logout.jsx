@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { clearToken } from "../redux/adminSlice";
-import Navigation from "./Navigation";
+import NavigationTemplate from "./NavigationTemplate";
+import Sidebar from "./Sidebar";
 
 function Logout() {
   const dispatch = useDispatch();
@@ -10,7 +11,8 @@ function Logout() {
   };
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
         <h3 className="my-5 fw-bold text-start">Logout</h3>
         <hr />

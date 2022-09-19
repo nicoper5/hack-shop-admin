@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +6,8 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "../css/collections.css";
 import { useSelector } from "react-redux";
+import NavigationTemplate from "./NavigationTemplate";
+import Sidebar from "./Sidebar";
 
 function Collections() {
   const navigate = useNavigate();
@@ -27,10 +28,11 @@ function Collections() {
 
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
-        <div className="row">
-          <div className="col-12">
+        <div className="row justify-content-end">
+          <div className="col-10">
             <h1 className="mt-5 fw-bold">Collections List</h1>
             <hr />
             <Link to="/collections/create" className="btn btn-success">

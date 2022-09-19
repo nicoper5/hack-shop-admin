@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
@@ -6,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { storeToken } from "../redux/adminSlice";
+import NavigationTemplate from "./NavigationTemplate";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ function Login() {
 
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
       <div className="container">
         <div>
           <h1 className="mt-5 fw-bold">Admin Login</h1>

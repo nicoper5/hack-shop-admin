@@ -1,10 +1,11 @@
-import Navigation from "./Navigation";
 import Button from "react-bootstrap/Button";
 import { Form, InputGroup } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import NavigationTemplate from "./NavigationTemplate";
+import Sidebar from "./Sidebar";
 
 function AdminCreate() {
   const navigate = useNavigate();
@@ -60,10 +61,11 @@ function AdminCreate() {
   };
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
-        <div className="row">
-          <div className="col-12 text-start fw-bold">
+        <div className="row justify-content-end">
+          <div className="col-10 text-start fw-bold">
             <h1 className="mt-5 fw-bold">Add a New Product</h1>
             <hr />
             <Form className="my-5" onSubmit={handleSubmit}>

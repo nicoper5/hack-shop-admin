@@ -1,10 +1,11 @@
-import Navigation from "./Navigation";
 import { Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
+import NavigationTemplate from "./NavigationTemplate";
+import Sidebar from "./Sidebar";
 
 function Product() {
   const navigate = useNavigate();
@@ -53,10 +54,11 @@ function Product() {
 
   return (
     <>
-      <Navigation />
+      <NavigationTemplate />
+      <Sidebar />
       <div className="container">
-        <div className="row ">
-          <div className="col-12">
+        <div className="row justify-content-end">
+          <div className="col-10">
             <h1 className="mt-5 fw-bold">PRODUCT LIST</h1>
             <hr />
             <Link to="/products/create" className="btn btn-success">
