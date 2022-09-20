@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import NavigationTemplate from "./NavigationTemplate";
 import Sidebar from "./Sidebar";
 
-function AdminCreate() {
+function ProductCreate() {
   const navigate = useNavigate();
 
   const [collections, setCollections] = useState(null);
@@ -202,4 +202,4 @@ function AdminCreate() {
   );
 }
 
-export default AdminCreate;
+export default ProductCreate;

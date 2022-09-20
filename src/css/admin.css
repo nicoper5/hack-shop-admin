@@ -23,3 +23,15 @@
 .btn-blue:hover {
   color: white;
 }
+
+.trash-icon {
+  margin-left: 6px;
+}
+
+.trash-icon:hover {
+  cursor: pointer;
+}
+
+.pointer-icon:hover {
+  cursor: pointer;
+}

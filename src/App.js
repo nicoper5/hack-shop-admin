@@ -12,6 +12,7 @@ import OrderEdit from "./components/OrderEdit";
 import ProductCreate from "./components/ProductCreate";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProductEdit from "./components/ProductEdit";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/collection/edit/:slug" element={<CollectionEdit />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/create" element={<ProductCreate />} />
+          <Route path="/products/edit/:slug" element={<ProductEdit />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>
