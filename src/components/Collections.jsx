@@ -55,9 +55,7 @@ function Collections() {
                         <img
                           className="img-fluid img-card"
                           src={
-                            process.env.REACT_APP_API_URL +
-                            "/img/" +
-                            collection.img
+                            process.env.REACT_APP_STORAGE_URL + collection.img
                           }
                           alt="Luminor Collection"
                         />
