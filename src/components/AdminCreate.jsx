@@ -20,7 +20,7 @@ function AdminCreate() {
     try {
       const createAdmin = await axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "/admin",
+        url: process.env.REACT_APP_API_URL + "/admins",
         data: {
           firstname,
           lastname,

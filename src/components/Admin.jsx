@@ -15,7 +15,7 @@ function Admin() {
     const getAdmins = async () => {
       const response = await axios({
         method: "get",
-        url: process.env.REACT_APP_API_URL + "/admin",
+        url: process.env.REACT_APP_API_URL + "/admins",
         headers: { Authorization: "Bearer " + token },
       });
       setAdmins(response.data);
@@ -32,7 +32,7 @@ function Admin() {
           <div className="col-10">
             <h1 className="mt-5 fw-bold">ADMIN LIST</h1>
             <hr />
-            <Link to="/admin/create" className="btn btn-success">
+            <Link to="/admins/create" className="btn btn-success">
               New Admin
             </Link>
             <table className="table table-striped table-bordered align-middle mt-4">
@@ -52,7 +52,7 @@ function Admin() {
                       <td>{admin.lastname}</td>
                       <td>{admin.email}</td>
                       <td>
-                        <Link to={`/admin/edit/${admin.id}`}>
+                        <Link to={`/admins/edit/${admin.id}`}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
@@ -81,13 +81,13 @@ function Admin() {
                                 method: "delete",
                                 url:
                                   process.env.REACT_APP_API_URL +
-                                  `/admin/${admin.id}`,
+                                  `/admins/${admin.id}`,
                                 headers: { Authorization: "Bearer " + token },
                               });
                               console.log(adminDeleted.data);
                               const adminsUpdated = await axios({
                                 method: "get",
-                                url: process.env.REACT_APP_API_URL + "/admin",
+                                url: process.env.REACT_APP_API_URL + "/admins",
                                 headers: { Authorization: "Bearer " + token },
                               });
                               setAdmins(adminsUpdated.data);

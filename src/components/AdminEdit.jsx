@@ -21,7 +21,7 @@ function AdminEdit() {
       const response = await axios({
         method: "get",
         baseURL: process.env.REACT_APP_API_URL,
-        url: `/admin/${params.id}`,
+        url: `/admins/${params.id}`,
 
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -41,7 +41,7 @@ function AdminEdit() {
       const response = await axios({
         method: "patch",
         baseURL: process.env.REACT_APP_API_URL,
-        url: `/admin/${params.id}`,
+        url: `/admins/${params.id}`,
         data: {
           firstname,
           lastname,
